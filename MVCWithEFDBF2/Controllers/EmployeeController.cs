@@ -16,5 +16,10 @@ namespace MVCWithEFDBF2.Controllers
                 //.Where(E =>E.Status==true);
             return View(Emps);
         }
+        public ViewResult DisplayEmployee(int Eid)
+        {
+            var employee = dc.Employees.Find(Eid);
+            return View(employee);
+        }
     }
 }

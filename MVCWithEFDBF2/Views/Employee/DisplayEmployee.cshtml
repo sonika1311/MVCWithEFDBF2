@@ -1,0 +1,37 @@
+﻿@model MVCWithEFDBF2.Models.Employee
+@{
+    ViewBag.Title = "DisplayEmployee";
+}
+
+<h2>DisplayEmployee</h2>
+<table class="table">
+    <tr>
+        <td>@Html.DisplayNameFor(E => E.Eid)</td>
+        <td>@Html.DisplayFor(E => E.Eid)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(E => E.Ename)</td>
+        <td>@Html.DisplayFor(E => E.Ename)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(E => E.Job)</td>
+        <td>@Html.DisplayFor(E => E.Job)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(E => E.Salary)</td>
+        <td>@Html.DisplayFor(E => E.Salary)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(E => E.Did)</td>
+        <td>@Html.DisplayFor(E => E.Did)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(E => E.Department.Dname)</td>
+        <td>@Html.DisplayFor(E => E.Department.Dname)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(E => E.Department.Location)</td>
+        <td>@Html.DisplayFor(E => E.Department.Location)</td>
+    </tr>
+</table>
+
