@@ -21,5 +21,15 @@ namespace MVCWithEFDBF2.Controllers
             var employee = dc.Employees.Find(Eid);
             return View(employee);
         }
+        public ViewResult AddEmployee()
+        {
+            ViewBag.Did = new SelectList(dc.Departments, "Did", "Dname");
+            return View();
+        }
+        [HttpPost]
+        public RedirectToRouteResult AddEmployee(Employee employee)
+        {
+            return RedirectToAction("DisplayEmployees");
+        }
     }
 }
