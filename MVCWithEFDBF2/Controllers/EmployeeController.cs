@@ -34,5 +34,18 @@ namespace MVCWithEFDBF2.Controllers
             dc.SaveChanges();
             return RedirectToAction("DisplayEmployees");
         }
+        public ViewResult EditEmployee(int eid)
+        {
+            Employee emp = dc.Employees.Find(eid);
+            ViewBag.Did = new SelectList(dc.Departments, "Did", "Dname", emp.Did);
+            return View(emp);
+        }
+        public RedirectToRouteResult UpdateEmployee(Employee emp)
+        {
+            emp.Status = true;
+            dc.Entry(emp).State = System.Data.Entity.EntityState.Modified;
+            dc.SaveChanges();
+            return RedirectToAction("DisplayEmployees");
+        }
     }
 }
