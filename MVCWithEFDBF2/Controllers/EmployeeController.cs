@@ -29,6 +29,9 @@ namespace MVCWithEFDBF2.Controllers
         [HttpPost]
         public RedirectToRouteResult AddEmployee(Employee employee)
         {
+            employee.Status = true;
+            dc.Employees.Add(employee);
+            dc.SaveChanges();
             return RedirectToAction("DisplayEmployees");
         }
     }
