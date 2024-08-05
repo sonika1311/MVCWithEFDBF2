@@ -47,5 +47,20 @@ namespace MVCWithEFDBF2.Controllers
             dc.SaveChanges();
             return RedirectToAction("DisplayEmployees");
         }
+        [HttpGet]
+        public ViewResult DeleteEmployee(int eid)
+        {
+            Employee emp = dc.Employees.Find(eid);
+            return View(emp);
+        }
+        [HttpPost]
+        public RedirectToRouteResult DeleteEmployee(Employee emp)
+        {
+            //emp.Status = false;
+            dc.Entry(emp).State = System.Data.Entity.EntityState.Modified;//soft delete
+            //dc.Entry(emp).State = System.Data.Entity.EntityState.Deleted; //permanet deletion
+            dc.SaveChanges();
+            return RedirectToAction("DisplayEmployees");
+        }
     }
 }
